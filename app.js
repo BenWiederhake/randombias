@@ -213,25 +213,6 @@ function randomBias() {
   return item;
 }
 
-function submitClicked() {
-  var actualThing = escapeHtml(document.getElementById("saleitem").value) || "unnamed stuff";
-  var username = escapeHtml(makeUsername());
-  var description = escapeHtml(makeDescription());
-  var datetime = escapeHtml(makeDatetime());
-  var template = makeTemplate();
-
-  var fullPhrase = template(username, description, datetime);
-
-  document.getElementById("response").innerHTML = `
-    <div class="alert alert-primary mt-4 pb-0" role="alert">
-      <h4 class="alert-heading">Sale of &ldquo;${actualThing}&rdquo;</h4>
-      <p>${fullPhrase}</p>
-    </div>
-  `;
-
-  document.getElementById("saleitem").value = "";
-}
-
 function loadRandomBias() {
   var bias = randomBias();
   document.getElementById("bias-name").innerHTML = escapeHtml(bias[0]);
